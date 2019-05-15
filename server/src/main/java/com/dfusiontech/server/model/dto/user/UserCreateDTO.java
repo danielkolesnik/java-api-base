@@ -51,7 +51,7 @@ public class UserCreateDTO extends DTOBase<Users> {
 	/**
 	 * Convert User Details DTO to Entity
 	 *
-	 * @return
+	 * @return Users Entity
 	 */
 	@Override
 	public Users toEntity(Users update) {

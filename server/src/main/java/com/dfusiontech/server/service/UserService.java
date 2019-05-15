@@ -9,6 +9,7 @@ import com.dfusiontech.server.model.data.UsersFilter;
 import com.dfusiontech.server.model.dto.DTOBase;
 import com.dfusiontech.server.model.dto.user.*;
 import com.dfusiontech.server.model.jpa.domains.RoleType;
+import com.dfusiontech.server.model.jpa.entity.Roles;
 import com.dfusiontech.server.model.jpa.entity.Users;
 import com.dfusiontech.server.repository.jpa.RoleRepository;
 import com.dfusiontech.server.repository.jpa.UserRepository;
@@ -222,6 +223,9 @@ public class UserService {
 		entity.setFirstName(itemDTO.getFirstName());
 		entity.setLastName(itemDTO.getLastName());
 		entity.setEmail(itemDTO.getEmail());
+
+//		entity = itemDTO.toEntity(entity);
+
 		// entity.setExpired(itemDTO.getExpired());
 		// entity.setEnabled(itemDTO.getEnabled());
 
@@ -230,24 +234,22 @@ public class UserService {
 			entity.setPassword(passwordEncoder.encode(itemDTO.getPasswordPlain()));
 		}
 
-		/*
 		// Set Roles List from objects or names
-		if (itemDTO.getRoles() != null) {
+		/*if (itemDTO.getRoles() != null) {
 			Optional.ofNullable(itemDTO.getRoles()).ifPresent(rolesList -> {
 				entity.setRoles(new HashSet<>());
 				itemDTO.getRoles().stream().forEach(role -> {
 					entity.getRoles().add(roleRepository.findById(role.getId()).get());
 				});
 			});
-		} else {
+		} else {*/
 			Optional.ofNullable(itemDTO.getRoleNames()).ifPresent(rolesList -> {
 				entity.setRoles(new HashSet<>());
 				itemDTO.getRoleNames().stream().forEach(roleName -> {
 					entity.getRoles().add(roleRepository.findOneByName(roleName));
 				});
 			});
-		}
-		*/
+		//}
 
 		// entity.setUpdatedBy(getCurrentUserEntity());
 		entity.setUpdatedAt(new Date());
@@ -322,7 +324,6 @@ public class UserService {
 
 			// Delete item details
 			userRepository.save(existingItem);
-
 			result = itemId;
 
 		} catch (NoSuchElementException exception) {

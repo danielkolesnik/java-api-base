@@ -40,6 +40,8 @@ public class Oauth2ResourceServerConfig extends ResourceServerConfigurerAdapter 
 		http.addFilterBefore(new DownloadAuthorizationFilter(), AbstractPreAuthenticatedProcessingFilter.class);
 		http.addFilterAfter(jsonFilter, BasicAuthenticationFilter.class);
 
+		http.authorizeRequests().antMatchers("/api/teacher/**", "/api/qualifications/**").permitAll();
+
 		http.authorizeRequests().antMatchers("/api/info/**", "/api/anonymous/**").permitAll();
 		http.authorizeRequests().antMatchers("/api/logout").authenticated();
 		http.authorizeRequests().antMatchers("/api/admin/**").hasAnyAuthority(RoleType.ADMIN.role());

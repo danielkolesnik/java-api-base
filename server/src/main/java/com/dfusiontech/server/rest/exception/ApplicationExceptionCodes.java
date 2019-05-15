@@ -24,4 +24,9 @@ public class ApplicationExceptionCodes {
 	public static final int RESET_PASSWORD_LINK_ALREADY_APPLIED = 1326;
 	public static final int RESET_PASSWORD_TOO_WEAK = 1327;
 
+	// Teacher ERRORs range: 1400-1499
+	public static final int TEACHER_WITH_EMAIL_ALREADY_EXISTS = 1401;
+	public static final int TEACHER_NOT_EXISTS = 1402;
+
+
 }

@@ -92,6 +92,7 @@ public class Users {
 		expired = false;
 		locked = false;
 		credentialsExpired = false;
+		deleted = false;
 	}
 
 }
