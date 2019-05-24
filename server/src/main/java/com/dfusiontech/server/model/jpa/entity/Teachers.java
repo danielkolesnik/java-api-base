@@ -29,7 +29,7 @@ public class Teachers {
 	@Column(name = "id", unique = true, nullable = false)
 	private Long id;
 
-	@Column(name = "full_name", nullable = true, insertable = false, updatable = false)
+	@Column(name = "full_name", nullable = true)
 	private String fullName;
 
 	@Column(name = "first_name", nullable = true)

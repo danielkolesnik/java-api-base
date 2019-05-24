@@ -57,7 +57,7 @@
 			CREATE INDEX i_teacher_full_name_deleted ON teachers (full_name, is_deleted);
 			CREATE INDEX i_teacher_deleted ON teachers (is_deleted);
 
-			INSERT INTO teachers (id, email, full_name, qualification_id) VALUES (1, 'luda@email.com', 'Lyudmila Anatolyevna', 2);
+			INSERT INTO teachers (id, email, full_name, qualification_id) VALUES (1, 'luda@email.com', 'Lyudmila Anatolyeva', 2);
 			INSERT INTO teachers (id, email, full_name, qualification_id) VALUES (2, 'zhora@email.com', 'Zhorik Vartanov', 4);
 
 		</sql>

@@ -22,4 +22,7 @@ public class TeacherUpdateDTO extends TeacherCreateDTO {
 	@ApiModelProperty(position = 0)
 	private Long id;
 
+	@ApiModelProperty(position = 5)
+	private boolean fired;
+
 }

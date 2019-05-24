@@ -51,7 +51,7 @@ public class TeacherService {
 	public List<TeacherListDTO> getList() {
 		List<Teachers> items;
 
-		items = teacherRepository.findAll();
+		items = teacherRepository.findAllAndDeletedIsFalse();
 
 		List<TeacherListDTO> teachersDTOList = DTOBase.fromEntitiesList(items, TeacherListDTO.class);
 
@@ -125,8 +125,6 @@ public class TeacherService {
 
 		applyEntityChanges(newItemDTO, newItem);
 
-		System.out.println(newItem.toString());
-
 		Teachers saveResult = teacherRepository.save(newItem);
 
 		TeacherDTO result = new TeacherDTO(saveResult);
@@ -183,7 +181,10 @@ public class TeacherService {
 	protected void applyEntityChanges(TeacherCreateDTO itemDTO, Teachers entity) {
 		entity.setFirstName(itemDTO.getFirstName());
 		entity.setLastName(itemDTO.getLastName());
-		entity.setFullName(itemDTO.getFullName());
+		entity.setFirstName(itemDTO.getFirstName());
+		entity.setLastName(itemDTO.getLastName());
+		entity.setFullName(itemDTO.getFirstName() + ' ' + itemDTO.getLastName());
+		System.out.println("\n\n\n"+itemDTO.getFirstName() + ' ' + itemDTO.getLastName() + "\n\n\n");
 		entity.setEmail(itemDTO.getEmail());
 
 		Optional.ofNullable(itemDTO.getQualificationName()).ifPresent(role -> {

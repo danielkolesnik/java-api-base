@@ -28,21 +28,18 @@ import java.util.Optional;
 public class TeacherCreateDTO extends DTOBase<Teachers> {
 
 	@ApiModelProperty(position = 1)
-	private String fullName;
-
-	@ApiModelProperty(position = 2)
 	private String firstName;
 
-	@ApiModelProperty(position = 3)
+	@ApiModelProperty(position = 2)
 	private String lastName;
 
-	@ApiModelProperty(position = 4)
+	@ApiModelProperty(position = 3)
 	private String email;
 
 	/**
 	 * Teacher qualification
 	 */
-	@ApiModelProperty(allowableValues = "TEACHER, PHD, DOCTOR, PROFESSOR", position = 3)
+	@ApiModelProperty(allowableValues = "TEACHER, PHD, DOCTOR, PROFESSOR", position = 4)
 	private String qualificationName = "";
 
 	/**

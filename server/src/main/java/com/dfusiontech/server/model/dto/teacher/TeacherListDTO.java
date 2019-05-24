@@ -1,6 +1,7 @@
 package com.dfusiontech.server.model.dto.teacher;
 
 import com.dfusiontech.server.model.dto.DTOBase;
+import com.dfusiontech.server.model.jpa.entity.Qualifications;
 import com.dfusiontech.server.model.jpa.entity.Teachers;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.EqualsAndHashCode;
@@ -24,11 +25,24 @@ public class TeacherListDTO extends DTOBase<Teachers> {
 	private Long id;
 
 	@ApiModelProperty(position = 1)
-	private String email;
+	private String fullName;
 
 	@ApiModelProperty(position = 2)
-	private Boolean fired;
+	private String firstName;
 
 	@ApiModelProperty(position = 3)
+	private String lastName;
+
+	@ApiModelProperty(position = 4)
+	private String email;
+
+	@ApiModelProperty(position = 5)
+	private Boolean fired;
+
+	@ApiModelProperty(position = 6)
 	private Boolean qualificationExpired;
+
+	@ApiModelProperty(position = 7)
+	private Qualifications qualification;
+
 }

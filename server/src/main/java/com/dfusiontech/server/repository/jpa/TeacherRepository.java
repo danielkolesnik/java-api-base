@@ -2,6 +2,7 @@ package com.dfusiontech.server.repository.jpa;
 
 import com.dfusiontech.server.model.jpa.entity.Teachers;
 import com.dfusiontech.server.repository.jpa.core.CoreRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.Collection;
@@ -19,6 +20,9 @@ import java.util.Optional;
 public interface TeacherRepository extends CoreRepository<Teachers, Long> {
 
 	Optional<Teachers> findById(Long id);
+
+	@Query("SELECT t FROM Teachers t WHERE t.deleted = false")
+	List<Teachers> findAllAndDeletedIsFalse();
 
 	Teachers findByEmail(String email);
 
